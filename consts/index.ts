@@ -42,6 +42,8 @@ export const API_URLS = {
     GetAnnouncments: `${ANNOUNCMENTS_URL}/get`,
     LikeAnnouncments: `${ANNOUNCMENTS_URL}/like`,
     DisLikeAnnouncments: `${ANNOUNCMENTS_URL}/disLike`,
+    LikeComment: `${ANNOUNCMENTS_URL}/likeComment`,
+    DisLikeComment: `${ANNOUNCMENTS_URL}/disLikeComment`,
     AddCommentToAnnouncments: `${ANNOUNCMENTS_URL}/addComment`,
     RemoveCommentToAnnouncments: `${ANNOUNCMENTS_URL}/removeComment`,
 }

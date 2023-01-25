@@ -8,9 +8,10 @@ import { useFetch } from "../hooks/useFetch"
 import { styles } from "../styles"
 import { CommentComponentProps } from "../types"
 import ProfileImage from "./ProfileImage"
+import HeartCommentSvg from "./svg/HeartCommentSvg"
 import TrashSvg from "./svg/Trash"
 
-const CommentComponent = ({ comment, id,setVisibleComments } : CommentComponentProps) =>{
+const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentComponentProps) =>{
     const { user } = useUserContext()
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
     const { setReload } = useReloadContext()
@@ -46,6 +47,7 @@ const CommentComponent = ({ comment, id,setVisibleComments } : CommentComponentP
                 <Text style={{ color: COLORS.white, marginTop: 10, marginLeft: 10 }}>{comment.content}</Text>
             </View>
             {ifAuthor()}
+            <HeartCommentSvg id={id} index={index} likes={comment.likes || []} />
         </View>
     )
 }

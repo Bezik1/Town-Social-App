@@ -90,7 +90,8 @@ export interface Comment {
 
 export interface CommentComponentProps { 
     comment: Comment, 
-    id: string, 
+    id: string,
+    index: number,
     setVisibleComments: React.Dispatch<React.SetStateAction<Comment[]>>
 }
 

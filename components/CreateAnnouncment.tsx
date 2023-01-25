@@ -64,7 +64,7 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
                 onPress={() => click(true)}
             >
                 <Text style={{ color: COLORS.white }}> Napisz 
-                    <Text style={{ color: COLORS.lightPurple }}> ogłoszenie</Text>!
+                    <Text> ogłoszenie</Text>!
                 </Text>
             </Pressable>
         )

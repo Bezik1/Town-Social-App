@@ -54,7 +54,8 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
                 <View style={{ paddingBottom: 40, display: 'flex', alignItems: 'flex-start'}}>
                         {visibleComments.map((comment, i) => <CommentComponent 
                                                                 id={_id}
-                                                                key={i} 
+                                                                key={i}
+                                                                index={i} 
                                                                 comment={comment} 
                                                                 setVisibleComments={setVisibleComments} 
                                                             />)}
