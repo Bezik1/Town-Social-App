@@ -154,8 +154,6 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.gray
     },
     announcementComment: {
-        display: "flex",
-        flexDirection: 'row',
         marginTop: 20,
         marginLeft: 10,
         backgroundColor: COLORS.gray,

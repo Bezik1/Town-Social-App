@@ -4,6 +4,7 @@ import { Pressable, TextInput, View } from "react-native"
 import { Text } from "react-native-elements"
 import { API_URLS, COLORS, Rang } from "../consts"
 import { useUserContext } from "../contexts/UserContext"
+import { useFetch } from "../hooks/useFetch"
 import { styles } from "../styles"
 import { CreateAnnouncmentInterface } from "../types"
 import ProfileImage from "./ProfileImage"
@@ -15,6 +16,7 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
     const [content, setContent] = useState('')
 
     const { user } = useUserContext()
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const handleSubmit = async () =>{
         const currentDate = new Date()
@@ -71,7 +73,7 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
     return (
         <View style={clicked ? { ...styles.createAnnouncement, height: 125 } : styles.createAnnouncement}>
             <Pressable onPress={()=> click(!clicked)} style={{ width: 60, height: 50 }}>
-            <ProfileImage style={{ width: 40, height: 40, margin: 5, marginRight: 2 }} />
+            <ProfileImage style={{ width: 40, height: 40, margin: 5, marginRight: 2 }} data={data} loading={loading} />
             </Pressable>
             {clicked && <Pressable onPress={handleSubmit} style={{ width: 40, height: 40, position: 'absolute', top: 70, left: 10 }}>
                 <CheckedSvg />

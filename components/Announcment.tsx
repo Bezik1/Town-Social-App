@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native"
 import { Pressable, View } from "react-native"
 import { Text } from "react-native-elements"
-import { COLORS } from "../consts"
+import { API_URLS, COLORS } from "../consts"
+import { useFetch } from "../hooks/useFetch"
 import { styles } from "../styles"
 import { AnnouncmentComponentProps, NavigationProps } from "../types"
 import ProfileImage from "./ProfileImage"
@@ -10,6 +11,7 @@ import HeartSvg from "./svg/Heart"
 const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
     const {  author, comments, content, date, likes, _id} = announcment
     const navigation = useNavigation<NavigationProps>()
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${announcment.author}`)
 
     const dateString = `${date.day}.${date.month}.${date.year}`
     const commentsText = () =>{
@@ -25,7 +27,7 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
     return (
         <View key={_id} style={styles.announcment}>
             <View style={{ display: 'flex', flexDirection: 'row', padding: 10 }}>
-                <ProfileImage style={{ width: 40, height: 40 }} />
+                <ProfileImage style={{ width: 40, height: 40 }} data={data} loading={loading} />
                 <View style={{ marginLeft: 5 }}>
                     <Text style={{ color: COLORS.purple }}>{author}</Text>
                     <Text style={{ color: COLORS.white }}>{dateString}</Text>

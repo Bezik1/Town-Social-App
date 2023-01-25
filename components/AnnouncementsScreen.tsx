@@ -1,7 +1,7 @@
 import { ScrollView, Text, View } from "react-native"
 import { RouteProp } from '@react-navigation/native'
 import { basicContainerStyles, flexCenterStyles, styles } from "../styles"
-import { COLORS } from "../consts"
+import { API_URLS, COLORS } from "../consts"
 import { AnnouncementsScreenRouteProps, Comment } from "../types"
 import HeartSvg from "./svg/Heart"
 import BackSvg from "./svg/Back"
@@ -9,10 +9,12 @@ import CreateComment from "./CreateComment"
 import CommentComponent from "./Comment"
 import { useEffect, useState } from "react"
 import ProfileImage from "./ProfileImage"
+import { useFetch } from "../hooks/useFetch"
 
 const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenRouteProps> }) =>{
     const [visibleComments, setVisibleComments] = useState<Comment[]>([])
     const { author, comments, content, date, likes, _id } = route.params.announcment
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${author}`)
 
     useEffect(() =>{
         setVisibleComments(comments)
@@ -29,7 +31,7 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
         <View style={{ ...basicContainerStyles }}>
             <ScrollView key={_id} style={styles.announcment}>
                 <View style={{ display: 'flex', flexDirection: 'row', padding: 10 }}>
-                    <ProfileImage style={{ width: 40, height: 40 }} />
+                    <ProfileImage style={{ width: 40, height: 40 }} data={data} loading={loading} />
                     <View style={{ marginLeft: 5 }}>
                         <Text style={{ color: COLORS.purple }}>{author}</Text>
                         <Text style={{ color: COLORS.white }}>{dateString}</Text>

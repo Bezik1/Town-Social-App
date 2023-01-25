@@ -11,11 +11,13 @@ import axios from "axios";
 import { Data } from "../types";
 import ProfileImage from "./ProfileImage";
 import BackSvg from "./svg/Back";
+import { useFetch } from "../hooks/useFetch";
 
 const OptionsComponent = () =>{
     const [file, setFile] = useState('')
     const { setReload } = useReloadContext()
     const { user } = useUserContext()
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const addImage = async () => {
         const image = await ImagePicker.launchImageLibraryAsync({
@@ -55,7 +57,11 @@ const OptionsComponent = () =>{
         <View style={basicContainerStyles}>
             <View style={{ display: 'flex', flexDirection: 'column' }}>
                 <View style={{margin: 10, marginTop: 40, width: 150, height: 150, ...flexCenterStyles }}>
-                    <ProfileImage style={{ width: '100%', height: '100%', borderWidth: 1, borderColor: '#fff'}} changedUri={file} />
+                    <ProfileImage 
+                        style={{ width: '100%', height: '100%', borderWidth: 1, borderColor: '#fff'}} 
+                        data={data} 
+                        loading={loading} 
+                    />
                     <Pressable style={styles.addPhotoImage} onPress={addImage}>
                         <PhotoSvg />
                     </Pressable>

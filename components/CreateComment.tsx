@@ -4,6 +4,7 @@ import { Pressable, Text, TextInput, View } from "react-native"
 import { API_URLS, COLORS } from "../consts"
 import { useReloadContext } from "../contexts/ReloadContext"
 import { useUserContext } from "../contexts/UserContext"
+import { useFetch } from "../hooks/useFetch"
 import { Comment, CreateCommentProps } from "../types"
 import ProfileImage from "./ProfileImage"
 import CheckedSvg from "./svg/Checked"
@@ -12,6 +13,7 @@ const CreateComment = ({ id , setVisibleComments} : CreateCommentProps) =>{
     const [content, setContent] = useState('')
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const handlePress = async () =>{
         try {
@@ -32,7 +34,7 @@ const CreateComment = ({ id , setVisibleComments} : CreateCommentProps) =>{
     return (
         <View style={{ width: '95%', height: 150, backgroundColor: COLORS.gray, marginTop: 20, marginBottom: 10 }}>
             <View style={{ display: 'flex', flexDirection: 'row' }}>
-                <ProfileImage style={{ width: 40, height: 40, margin: 5 }} />
+                <ProfileImage style={{ width: 40, height: 40, margin: 5 }} data={data} loading={loading} />
                 <Text style={{ marginTop: 15, color: COLORS.purple }}>{user?.username}</Text>
             </View>
             <TextInput
