@@ -45,6 +45,11 @@ export interface Data<T> {
     data: T
 }
 
+export interface Loggined {
+    device: string
+    status: boolean
+}
+
 export interface User {
     _id?: string
     username?: string
@@ -52,6 +57,7 @@ export interface User {
     picturePath?: string
     roles?: string[]
     password: string
+    loggined: Loggined
 }
 
 export interface LogoProps { 

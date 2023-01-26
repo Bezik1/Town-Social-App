@@ -36,6 +36,8 @@ export const API_URLS = {
     Login: `${USERS_URL}/login`,
     CreateUser: `${USERS_URL}/create`,
     CreateAnnouncment: `${ANNOUNCMENTS_URL}/create`,
+    IfLoggined: `${USERS_URL}/ifLoggined`,
+    Logout: `${USERS_URL}/logout`,
     AddPhoto: `${USERS_URL}/addPhoto`,
     GetPhoto: `${USERS_URL}/getPhoto`,
     ChangePhoto: `${USERS_URL}/changePhoto`,

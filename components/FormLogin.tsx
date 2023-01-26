@@ -1,8 +1,9 @@
 import { useNavigation } from "@react-navigation/native"
 import axios from "axios"
-import { ReactNode, useState } from "react"
-import { Image, Pressable, Text, TextInput, View } from "react-native"
-import { API_URLS, COLORS, IMAGES_URLS, SCREENS_NAMES } from "../consts"
+import { useEffect, useState } from "react"
+import { Pressable, Text, TextInput, View } from "react-native"
+import { API_URLS, COLORS } from "../consts"
+import * as Device from 'expo-device';
 import { useUserContext } from "../contexts/UserContext"
 import { styles } from "../styles"
 import { Data, NavigationProps, User } from "../types"
@@ -13,6 +14,18 @@ const FormLogin = () =>{
     const [err, setErr] = useState('')
     const { setUser } = useUserContext()
 
+    useEffect(() =>{
+        console.log(Device.osInternalBuildId)
+        const asyncIfLogined = async () =>{
+            const res: Data<User> = (await axios.post(API_URLS.IfLoggined, { device: Device.osInternalBuildId })).data
+            if(res.status === 'succes') {
+                setUser(res.data)
+                navigation.navigate('Home', {})
+            }
+        }
+        asyncIfLogined()
+    }, [])
+
     const navigation = useNavigation<NavigationProps>()
 
     const IfError = () => 
@@ -22,7 +35,11 @@ const FormLogin = () =>{
 
     const handleSubmit = async () =>{
         try {
-            const { data, status, message } = (await axios.post<Data<User>>(API_URLS.Login, formData)).data
+            const reqFormData = {
+                ...formData,
+                device:  Device.osInternalBuildId
+            }
+            const { data, status, message } = (await axios.post<Data<User>>(API_URLS.Login, reqFormData)).data
 
             if(status === 'succes') {
                 setErr('')

@@ -9,7 +9,7 @@ import ProfileImage from "./ProfileImage"
 import HeartSvg from "./svg/Heart"
 
 const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
-    const {  author, comments, content, date, likes, _id} = announcment
+    const { author, comments, content, date, likes, _id} = announcment
     const navigation = useNavigation<NavigationProps>()
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${announcment.author}`)
 

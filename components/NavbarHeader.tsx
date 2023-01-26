@@ -1,11 +1,12 @@
 import { Animated, Text, View, Pressable, Easing } from "react-native"
 import { styles } from "../styles";
-import { COLORS, SCREENS_NAMES } from "../consts";
+import { API_URLS, COLORS, SCREENS_NAMES } from "../consts";
 import { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import { useDimensions } from "../hooks/useDimensions";
 import { useNavbarSelectContext } from "../contexts/NavbarSelectContext";
 import { useEffect, useRef } from "react";
 import { useUserContext } from "../contexts/UserContext";
+import axios from "axios";
 
 const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
     const { user, setUser } = useUserContext()
@@ -20,8 +21,9 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
             setSelected(false)
         }
 
-        const handleLogout = () =>{
+        const handleLogout = async () =>{
             setUser(undefined)
+            await axios.post(`${API_URLS.Logout}/${user?._id}`)
             setSelected(false)
             navigation.navigate('Login', {})
         }
@@ -83,7 +85,7 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
             }}
         >
             {
-            selected && <View style={styles.navbarBtns}>
+            selected && <View key="NavbarView" style={styles.navbarBtns}>
                 {mapScreensNames()}
             </View>
             }
