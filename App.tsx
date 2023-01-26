@@ -12,7 +12,6 @@ import { basicContainerStyles } from './styles';
 import AnnouncementsScreen from './components/AnnouncementsScreen';
 import { Announcment } from './types';
 import { FunctionComponent } from 'react';
-import CreateAnnouncment from './components/CreateAnnouncment';
 import { ReloadProvider } from './contexts/ReloadContext';
 import OptionsComponent from './components/OptionsComponent';
 

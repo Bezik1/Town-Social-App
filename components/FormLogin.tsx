@@ -37,7 +37,7 @@ const FormLogin = () =>{
         try {
             const reqFormData = {
                 ...formData,
-                device:  Device.osInternalBuildId
+                device: String(Device.osInternalBuildId)
             }
             const { data, status, message } = (await axios.post<Data<User>>(API_URLS.Login, reqFormData)).data
 
