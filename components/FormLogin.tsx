@@ -14,18 +14,6 @@ const FormLogin = () =>{
     const [err, setErr] = useState('')
     const { setUser } = useUserContext()
 
-    useEffect(() =>{
-        console.log(Device.osInternalBuildId)
-        const asyncIfLogined = async () =>{
-            const res: Data<User> = (await axios.post(API_URLS.IfLoggined, { device: Device.osInternalBuildId })).data
-            if(res.status === 'succes') {
-                setUser(res.data)
-                navigation.navigate('Home', {})
-            }
-        }
-        asyncIfLogined()
-    }, [])
-
     const navigation = useNavigation<NavigationProps>()
 
     const IfError = () => 
