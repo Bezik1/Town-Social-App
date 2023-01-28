@@ -140,18 +140,18 @@ export const styles = StyleSheet.create({
         borderRadius: 100
     },
     createAnnouncement: {
-        flexDirection: 'row', 
+        marginTop: 40,
+        flexDirection: 'column', 
         width: '100%', 
-        height: 50,
-        backgroundColor: COLORS.purple
+        height: 200,
+        backgroundColor: COLORS.lightGray
     },
     createAnnouncementInput: {
-        marginLeft: '2%', 
+        fontSize: 16,
         width: '65%',
         padding: 10,
         color: COLORS.white,
         paddingBottom: '22%',
-        backgroundColor: COLORS.gray
     },
     announcementComment: {
         marginTop: 20,

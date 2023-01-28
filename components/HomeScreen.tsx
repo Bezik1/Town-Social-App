@@ -16,7 +16,7 @@ const HomeScreen = () =>{
     return (
         <ScrollView style={styles.home}>
             <CreateAnnouncment setReload={setReload}/>
-            <ScrollView style={{ marginTop: 20, paddingBottom: '20%' }}>
+            <ScrollView style={{ paddingBottom: '20%' }}>
                 {!loading && data.sort(sortAlghoritm)
                                  .map((announcment, i) => <AnnouncmentComponent 
                                                             key={i} 
