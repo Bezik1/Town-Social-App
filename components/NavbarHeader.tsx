@@ -23,9 +23,9 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
 
         const handleLogout = async () =>{
             setUser(undefined)
-            await axios.post(`${API_URLS.Logout}/${user?._id}`)
             setSelected(false)
             navigation.navigate('Login', {})
+            await axios.post(`${API_URLS.Logout}/${user?._id}`)
         }
 
         return SCREENS_NAMES.map(screenName =>{

@@ -91,6 +91,7 @@ export interface CreateAnnouncmentInterface {
 export interface Comment {
     author: string
     content: string
+    responses?: Comment[]
     likes?: string[]
 }
 
@@ -111,4 +112,19 @@ export interface Date {
     day: number
     month: number | string
     year: number
+}
+
+export type HeartConfigType = {
+    likes: string[]
+    likeUrl: string
+    disLikeUrl: string
+    reqObject: { username: string, _id?: string, index?: number, resIndex?: number }
+    style?: StyleProp<ViewStyle>
+}
+
+export interface CreateResponseCommentProps  { 
+    _id: string, 
+    index: number, 
+    setResponses: React.Dispatch<React.SetStateAction<Comment[] | undefined>>,
+    setReply: React.Dispatch<React.SetStateAction<boolean>>
 }

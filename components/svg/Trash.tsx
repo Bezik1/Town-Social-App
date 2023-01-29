@@ -2,7 +2,7 @@ import { StyleProp, ViewStyle } from "react-native"
 import Svg, { Path } from "react-native-svg"
 import { COLORS } from "../../consts"
 
-const TrashSvg = ({  style} : { style?: StyleProp<ViewStyle> }) =>{
+const TrashSvg = ({ style } : { style?: StyleProp<ViewStyle> }) =>{
   return (
     <Svg
       color={COLORS.lightRed}

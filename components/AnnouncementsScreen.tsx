@@ -2,19 +2,31 @@ import { ScrollView, Text, View } from "react-native"
 import { RouteProp } from '@react-navigation/native'
 import { basicContainerStyles, flexCenterStyles, styles } from "../styles"
 import { API_URLS, COLORS } from "../consts"
-import { AnnouncementsScreenRouteProps, Comment } from "../types"
-import HeartSvg from "./svg/Heart"
+import { AnnouncementsScreenRouteProps, Comment, HeartConfigType } from "../types"
 import BackSvg from "./svg/Back"
 import CreateComment from "./CreateComment"
 import CommentComponent from "./Comment"
 import { useEffect, useState } from "react"
 import ProfileImage from "./ProfileImage"
 import { useFetch } from "../hooks/useFetch"
+import { useUserContext } from "../contexts/UserContext"
+import HeartSvg from "./svg/HeartSvg"
 
 const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenRouteProps> }) =>{
     const [visibleComments, setVisibleComments] = useState<Comment[]>([])
     const { author, comments, content, date, likes, _id } = route.params.announcment
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${author}`)
+    const { user } = useUserContext()
+
+    const heartConfig: HeartConfigType = {
+        reqObject: {
+            username: String(user?.username), 
+        },
+        likeUrl: `${API_URLS.LikeAnnouncments}/${_id}`,
+        disLikeUrl: `${API_URLS.DisLikeAnnouncments}/${_id}`,
+        likes: likes || [],
+        style: { marginLeft: 10, width: 40, ...flexCenterStyles }
+    }
 
     useEffect(() =>{
         setVisibleComments(comments)
@@ -28,7 +40,7 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
     }
 
     return (
-        <View style={{ ...basicContainerStyles }}>
+        <View style={{ ...basicContainerStyles, paddingBottom: '20%' }}>
             <ScrollView key={_id} style={styles.announcment}>
                 <View style={{ display: 'flex', flexDirection: 'row', padding: 10 }}>
                     <ProfileImage style={{ width: 40, height: 40 }} data={data} loading={loading} />
@@ -41,7 +53,7 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
                     <Text style={{ color: COLORS.white, fontSize: 18 }}>{content}</Text>
                 </View>
                 <View style={{ marginLeft: 10 }}>
-                    <HeartSvg id={String(_id)} likes={likes} />
+                    <HeartSvg config={heartConfig} />
                     <View style={{ position: 'absolute', right: 20, top: 20, opacity: 0.75 }}>
                         <Text style={{ color: COLORS.white, textAlign: 'center', width: 100 }}>
                             {visibleComments.length} {commentsText()}

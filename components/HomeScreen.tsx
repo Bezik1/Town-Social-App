@@ -9,7 +9,7 @@ import { useReloadContext } from "../contexts/ReloadContext"
 
 const HomeScreen = () =>{
     const { reload, setReload } = useReloadContext()
-    const { data, loading} = useFetch<Announcment[]>(API_URLS.GetAnnouncments, undefined, reload)
+    const { data, loading } = useFetch<Announcment[]>(API_URLS.GetAnnouncments, undefined, reload)
 
     const sortAlghoritm = (a: Announcment, b: Announcment) => b.likes.length - a.likes.length
 
@@ -18,7 +18,7 @@ const HomeScreen = () =>{
             <CreateAnnouncment setReload={setReload}/>
             <ScrollView style={{ paddingBottom: '20%' }}>
                 {!loading && data.sort(sortAlghoritm)
-                                 .map((announcment, i) => <AnnouncmentComponent 
+                                 .map((announcment, i) => <AnnouncmentComponent
                                                             key={i} 
                                                             announcment={announcment} 
                                                         />)}

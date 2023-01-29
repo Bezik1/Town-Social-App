@@ -46,6 +46,10 @@ export const API_URLS = {
     DisLikeAnnouncments: `${ANNOUNCMENTS_URL}/disLike`,
     LikeComment: `${ANNOUNCMENTS_URL}/likeComment`,
     DisLikeComment: `${ANNOUNCMENTS_URL}/disLikeComment`,
+    AddResponse: `${ANNOUNCMENTS_URL}/responseToComment`,
+    LikeResponse: `${ANNOUNCMENTS_URL}/likeResponse`,
+    DisLikeResponse: `${ANNOUNCMENTS_URL}/disLikeResponse`,
+    DeleteResponse: `${ANNOUNCMENTS_URL}/deleteResponse`,
     AddCommentToAnnouncments: `${ANNOUNCMENTS_URL}/addComment`,
     RemoveCommentToAnnouncments: `${ANNOUNCMENTS_URL}/removeComment`,
 }

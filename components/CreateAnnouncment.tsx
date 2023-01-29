@@ -61,6 +61,7 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
                     placeholderTextColor={COLORS.white} 
                     placeholder="Co słychać?" 
                     style={styles.createAnnouncementInput}
+                    value={content}
                     onChangeText={text => setContent(text)}
                 />
             </View>

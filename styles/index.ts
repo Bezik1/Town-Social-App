@@ -160,6 +160,26 @@ export const styles = StyleSheet.create({
         paddingBottom: 20, 
         width: '95%',
     },
+    announcementCommentResponsesView: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-end',
+        width: '100%',
+    },
+    announcementCommentResponseLine: {
+        width: 10,
+        opacity: 0.75,
+        height: '100%',
+        marginRight: '5%',
+        backgroundColor: COLORS.purple
+    },
+    announcementCommentResponse: {
+        marginTop: 20,
+        marginRight: 10,
+        backgroundColor: COLORS.gray,
+        paddingBottom: 10, 
+        width: '85%',
+    },
     addPhotoImage: { 
         width: 50, 
         height: 50, 

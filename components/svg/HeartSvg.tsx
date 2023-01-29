@@ -2,12 +2,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Pressable, Text } from "react-native"
 import Svg, { Path } from "react-native-svg"
-import { API_URLS, COLORS } from "../../consts"
+import { COLORS } from "../../consts"
 import { useReloadContext } from "../../contexts/ReloadContext"
 import { useUserContext } from "../../contexts/UserContext"
-import { flexCenterStyles } from "../../styles"
+import { HeartConfigType } from "../../types"
 
-const HeartSvg = ({ id, likes } : { id: string, likes: string[] }) =>{
+const HeartSvg = ({ config } : { config: HeartConfigType }) =>{
+    const { likeUrl, disLikeUrl, likes, reqObject, style } = config
+
     const [clicked, click] = useState(false)
     const [active, setActive] = useState(false)
     const { user } = useUserContext()
@@ -28,10 +30,10 @@ const HeartSvg = ({ id, likes } : { id: string, likes: string[] }) =>{
     useEffect(() =>{
         const checkIfUserClicked = async () =>{
             if(active && clicked) {
-                await axios.post(`${API_URLS.LikeAnnouncments}/${id}`, { username: String(user?.username) })
+                await axios.post(likeUrl, reqObject)
                 setReload(reload => !reload)
             } else if(!active && clicked) {
-                await axios.post(`${API_URLS.DisLikeAnnouncments}/${id}`, { username: String(user?.username) })
+                await axios.post(disLikeUrl, reqObject)
                 setReload(reload => !reload)
             }
         }
@@ -47,7 +49,10 @@ const HeartSvg = ({ id, likes } : { id: string, likes: string[] }) =>{
     }
 
     return (
-    <Pressable style={{ marginLeft: 10, width: 40, ...flexCenterStyles }} onPress={handleClick}>
+    <Pressable 
+        style={style}
+        onPress={handleClick}
+    >
         <Svg
             viewBox="0 0 512 512"
             style={{ width: 30, height: 30 }}
