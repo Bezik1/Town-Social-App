@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Pressable, Text, TextInput, View } from "react-native"
 import { API_URLS, COLORS } from "../consts"
 import { useReloadContext } from "../contexts/ReloadContext"
@@ -10,29 +10,34 @@ import { Comment, CreateResponseCommentProps } from "../types"
 import ProfileImage from "./ProfileImage"
 import CheckedSvg from "./svg/Checked"
 
-const CreateResponseComment = ({ _id, index, setResponses, setReply } : CreateResponseCommentProps) =>{
+const CreateResponseComment = ({ _id, index, setResponses, setReply, data, loading } : CreateResponseCommentProps) =>{
     const [content, setContent] = useState('')
+    const [error, setError] = useState('')
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
-    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const handleSubmit = async () =>{
         try {
-            const comment: Comment = {
-                author: String(user?.username),
-                content
+            if(content.length < 4) setError('Komentarz musi zawierać, co najmniej 4 znaki')
+            else {
+                const comment: Comment = {
+                    author: String(user?.username),
+                    content
+                }
+        
+                await axios.post(API_URLS.AddResponse, { _id, comment, index })
+                setContent('')
+                //@ts-ignore
+                setResponses((responses) => [comment, ...responses])
+                setReply(false)
+                setReload((reload) => !reload)
             }
-    
-            await axios.post(API_URLS.AddResponse, { _id, comment, index })
-            setContent('')
-            //@ts-ignore
-            setResponses((responses) => [comment, ...responses])
-            setReply(false)
-            setReload((reload) => !reload)
         } catch(err) {
             console.log(err)
         }
     }
+
+    useEffect(() => console.log(error), [error])
 
     return (
         <View style={{ display: 'flex', flexDirection: 'row' }}>

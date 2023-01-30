@@ -34,9 +34,9 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
 
     const dateString = `${date.day}.${date.month}.${date.year}`
     const commentsText = () =>{
-        if(visibleComments.length === 1) return 'Komentarz'
-        else if(visibleComments.length === 0 || visibleComments.length > 4) return 'Komentarzy'
-        else return 'Komentarze'
+        if(visibleComments.length === 1) return ' Komentarz'
+        else if(visibleComments.length === 0 || visibleComments.length > 4) return ' Komentarzy'
+        else return ' Komentarze'
     }
 
     return (
@@ -56,7 +56,10 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
                     <HeartSvg config={heartConfig} />
                     <View style={{ position: 'absolute', right: 20, top: 20, opacity: 0.75 }}>
                         <Text style={{ color: COLORS.white, textAlign: 'center', width: 100 }}>
-                            {visibleComments.length} {commentsText()}
+                            {visibleComments.length + 
+                             visibleComments.reduce((amount, object) => amount + Number(object.responses?.length), 0)
+                            }
+                            {commentsText()}
                         </Text>
                     </View>
                 </View>

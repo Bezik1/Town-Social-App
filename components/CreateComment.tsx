@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Pressable, Text, TextInput, View } from "react-native"
 import { API_URLS, COLORS } from "../consts"
 import { useReloadContext } from "../contexts/ReloadContext"
@@ -11,25 +11,31 @@ import CheckedSvg from "./svg/Checked"
 
 const CreateComment = ({ id , setVisibleComments} : CreateCommentProps) =>{
     const [content, setContent] = useState('')
+    const [error, setError] = useState('')
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const handlePress = async () =>{
         try {
-            const comment: Comment = {
-                author: String(user?.username),
-                content
+            if(content.length < 4) setError('Komentarz musi zawierać, co najmniej 4 znaki')
+            else {
+                const comment: Comment = {
+                    author: String(user?.username),
+                    content
+                }
+        
+                await axios.post(`${API_URLS.AddCommentToAnnouncments}/${id}`, comment)
+                setContent('')
+                setVisibleComments((prevComments) => [...prevComments, comment])
+                setReload((reload) => !reload)
             }
-    
-            await axios.post(`${API_URLS.AddCommentToAnnouncments}/${id}`, comment)
-            setContent('')
-            setVisibleComments((prevComments) => [...prevComments, comment])
-            setReload((reload) => !reload)
         } catch(err) {
             console.log(err)
         }
     }
+
+    useEffect(() => console.log(error), [error])
 
     return (
         <View style={{ width: '95%', height: 150, backgroundColor: COLORS.gray, marginTop: 20, marginBottom: 10 }}>

@@ -7,7 +7,7 @@ import { useReloadContext } from "../contexts/ReloadContext"
 import { useUserContext } from "../contexts/UserContext"
 import { useFetch } from "../hooks/useFetch"
 import { flexCenterStyles, styles } from "../styles"
-import { AnnouncmentComponentProps, Data, HeartConfigType, NavigationProps } from "../types"
+import { AnnouncmentComponentProps, Comment, Data, HeartConfigType, NavigationProps } from "../types"
 import ProfileImage from "./ProfileImage"
 import HeartSvg from "./svg/HeartSvg"
 import TrashSvg from "./svg/Trash"
@@ -31,9 +31,9 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
 
     const dateString = `${date.day}.${date.month}.${date.year}`
     const commentsText = () =>{
-        if(comments.length === 1) return 'Komentarz'
-        else if(comments.length === 0 || comments.length > 4) return 'Komentarzy'
-        else return 'Komentarze'
+        if(comments.length === 1) return ' Komentarz'
+        else if(comments.length === 0 || comments.length > 4) return ' Komentarzy'
+        else return ' Komentarze'
     }
 
     const Trash = () =>{
@@ -74,7 +74,10 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
                 onPress={handleCommentPress}
             >
                 <Text style={{ color: COLORS.white, textAlign: 'center', width: 100 }}>
-                    {comments.length} {commentsText()}
+                    {comments.length + 
+                     comments.reduce((amount, object) => amount + Number(object.responses?.length), 0)
+                    }
+                    {commentsText()}
                 </Text>
             </Pressable>
         </View>

@@ -126,5 +126,7 @@ export interface CreateResponseCommentProps  {
     _id: string, 
     index: number, 
     setResponses: React.Dispatch<React.SetStateAction<Comment[] | undefined>>,
-    setReply: React.Dispatch<React.SetStateAction<boolean>>
+    setReply: React.Dispatch<React.SetStateAction<boolean>>,
+    data: string,
+    loading: boolean
 }

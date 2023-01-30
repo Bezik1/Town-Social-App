@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Pressable, TextInput, View } from "react-native"
 import { Text } from "react-native-elements"
 import { API_URLS, COLORS, Rang } from "../consts"
@@ -12,6 +12,7 @@ import CheckedSvg from "./svg/Checked"
 
 const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.SetStateAction<boolean>> }) =>{
     const [content, setContent] = useState('')
+    const [error, setError] = useState('')
 
     const currentDate = new Date()
     const date = {
@@ -35,17 +36,21 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
         }
 
         try {
-            const { status } = await axios.post(API_URLS.CreateAnnouncment, announcment)
+            if(content.length < 10) setError('Ogłoszenie musi zawierać, co najmneij 10 znaków')
+            else {
+                const { status } = await axios.post(API_URLS.CreateAnnouncment, announcment)
 
-            if(status === 201) {
-                setReload((reload) => !reload)
-                setContent('')
-            } else if(content.length < 10) console.log('Too short contentt') 
-              else console.log('Error')
+                if(status === 201) {
+                    setReload((reload) => !reload)
+                    setContent('')
+                }
+            }
         } catch(err) {
             console.log(err)
         }
     }
+
+    useEffect(() => console.log(error), [error])
 
     return (
         <View style={styles.createAnnouncement}>

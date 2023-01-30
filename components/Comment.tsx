@@ -19,6 +19,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
     const { user } = useUserContext()
     const [responses, setResponses] = useState<Comment[]>()
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
+    const { data: userPhoto, loading: userPhotoLoading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
     const [reply, setReply] = useState(false)
     const { setReload } = useReloadContext()
 
@@ -78,7 +79,15 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                 </View>
             </View>
             <View style={styles.announcementCommentResponsesView}>
-                {reply && <CreateResponseComment setReply={setReply} setResponses={setResponses} _id={id} index={index} />}
+                {reply && <CreateResponseComment
+                            data={userPhoto}
+                            loading={userPhotoLoading}
+                            setReply={setReply} 
+                            setResponses={setResponses} 
+                            _id={id} 
+                            index={index} 
+                          />
+                }
                 {responses?.map((response, i) => <CommentResponse
                                                             id={id}
                                                             key={`responseComment/${i}`} 

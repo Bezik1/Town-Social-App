@@ -77,6 +77,9 @@ const OptionsComponent = () =>{
                     <Text style={{ color: COLORS.white, fontSize: 18 }}>
                         Email: <Text style={{ color: COLORS.purple }}>{user?.email} </Text>
                     </Text>
+                    <Text style={{ color: COLORS.white, fontSize: 18, marginTop: 20 }}>
+                        Rola: <Text style={{ color: COLORS.purple }}>{user?.roles} </Text>
+                    </Text>
                 </View>
             </View>
             <BackSvg />
