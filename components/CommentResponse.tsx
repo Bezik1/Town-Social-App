@@ -5,12 +5,12 @@ import { useReloadContext } from "../contexts/ReloadContext"
 import { useUserContext } from "../contexts/UserContext"
 import { useFetch } from "../hooks/useFetch"
 import { flexCenterStyles, styles } from "../styles"
-import { Comment, HeartConfigType } from "../types"
+import { Comment, CommentResponseProps, HeartConfigType } from "../types"
 import ProfileImage from "./ProfileImage"
 import HeartSvg from "./svg/HeartSvg"
 import TrashSvg from "./svg/Trash"
 
-const CommentResponse = ({ id, comment, resIndex, index } : { id: string, comment: Comment, resIndex: number, index: number }) =>{
+const CommentResponse = ({ id, comment, resIndex, index, lastIndex } : CommentResponseProps) =>{
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
@@ -37,6 +37,8 @@ const CommentResponse = ({ id, comment, resIndex, index } : { id: string, commen
         }
     }
 
+    const isLastElement = () => lastIndex === resIndex ? { height: '59.5%' } : {}
+
     const ifAuthor = () =>{
         if(String(user?.username) === comment.author) return (
             <Pressable
@@ -50,7 +52,12 @@ const CommentResponse = ({ id, comment, resIndex, index } : { id: string, commen
 
     return (
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-            <View style={styles.announcementCommentResponseLine} />
+            <View 
+                style={{
+                    ...styles.announcementCommentResponseLine,
+                    ...isLastElement()
+                }} />
+            <View style={styles.announcementCommentResponseLineConnect} />
             <View style={styles.announcementCommentResponse}>
                 <View style={{ display: "flex",flexDirection: 'row'}}>
                     <ProfileImage 

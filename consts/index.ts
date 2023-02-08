@@ -1,8 +1,8 @@
 export const SCREENS_NAMES = [
-    'Home',
-    'Register',
-    'Options',
-    'Login',
+    'Ogłoszenia',
+    'Zarejestruj',
+    'Opcje',
+    'Zaloguj',
 ]
 
 export enum Rang {
@@ -28,8 +28,8 @@ export enum COLORS {
     gray =  '#323E48'
 }
 
-export const USERS_URL = 'http://192.168.1.60:3000/users'
-export const ANNOUNCMENTS_URL = 'http://192.168.1.60:3000/announcments'
+export const USERS_URL = 'https://doc-api-tiq6.onrender.com/users' //'http://192.168.1.60:3000/users'
+export const ANNOUNCMENTS_URL = 'https://doc-api-tiq6.onrender.com/announcments' //http://192.168.1.60:3000/announcments'
 
 export const API_URLS = {
     Users: `${USERS_URL}/get`,

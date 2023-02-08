@@ -23,10 +23,10 @@
         "UIBackgroundModes": [
           "fetch"
         ]
-    },
-    "android": {
-      "permissions": [
-        "INTERNET"
+      },
+      "android": {
+        "permissions": [
+          "INTERNET"
         ]
       },
       "adaptiveIcon": {
@@ -36,6 +36,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "com.bezik12.doc"
     }
   }
 }

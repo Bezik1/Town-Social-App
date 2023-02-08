@@ -10,11 +10,22 @@ import { Comment, CreateResponseCommentProps } from "../types"
 import ProfileImage from "./ProfileImage"
 import CheckedSvg from "./svg/Checked"
 
-const CreateResponseComment = ({ _id, index, setResponses, setReply, data, loading } : CreateResponseCommentProps) =>{
+const CreateResponseComment = ({ 
+    _id, 
+    index, 
+    setResponses,
+    setReply, 
+    data, 
+    loading, 
+    responses 
+} : CreateResponseCommentProps) =>{
+
     const [content, setContent] = useState('')
     const [error, setError] = useState('')
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
+
+    const isLastElement = () => Number(responses?.length) === 0 ? { height: '56%' } : {}
 
     const handleSubmit = async () =>{
         try {
@@ -41,7 +52,12 @@ const CreateResponseComment = ({ _id, index, setResponses, setReply, data, loadi
 
     return (
         <View style={{ display: 'flex', flexDirection: 'row' }}>
-            <View style={styles.announcementCommentResponseLine} />
+            <View 
+                style={{
+                    ...styles.announcementCommentResponseLine,
+                    ...isLastElement()
+                }} />
+            <View style={styles.announcementCommentResponseLineConnect} />
             <View style={{ width: '85%', height: 150, backgroundColor: COLORS.gray, marginTop: 20, marginRight: 10 }}>
             <View style={{ display: 'flex', flexDirection: 'row' }}>
                 <ProfileImage style={{ width: 40, height: 40, margin: 5 }} data={data} loading={loading} />

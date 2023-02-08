@@ -8,14 +8,12 @@ import CreateComment from "./CreateComment"
 import CommentComponent from "./Comment"
 import { useEffect, useState } from "react"
 import ProfileImage from "./ProfileImage"
-import { useFetch } from "../hooks/useFetch"
 import { useUserContext } from "../contexts/UserContext"
 import HeartSvg from "./svg/HeartSvg"
 
 const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenRouteProps> }) =>{
     const [visibleComments, setVisibleComments] = useState<Comment[]>([])
     const { author, comments, content, date, likes, _id } = route.params.announcment
-    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${author}`)
     const { user } = useUserContext()
 
     const heartConfig: HeartConfigType = {
@@ -43,7 +41,7 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
         <View style={{ ...basicContainerStyles, paddingBottom: '20%' }}>
             <ScrollView key={_id} style={styles.announcment}>
                 <View style={{ display: 'flex', flexDirection: 'row', padding: 10 }}>
-                    <ProfileImage style={{ width: 40, height: 40 }} data={data} loading={loading} />
+                    <ProfileImage style={{ width: 40, height: 40 }} data={route.params.data} loading={false} />
                     <View style={{ marginLeft: 5 }}>
                         <Text style={{ color: COLORS.purple }}>{author}</Text>
                         <Text style={{ color: COLORS.white }}>{dateString}</Text>

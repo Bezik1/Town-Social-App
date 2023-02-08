@@ -19,6 +19,9 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
 
+    const commentsAmmount = comments.length + 
+        comments.reduce((amount, object) => amount + Number(object.responses?.length), 0)
+
     const heartConfig: HeartConfigType = {
         reqObject: {
             username: String(user?.username), 
@@ -30,9 +33,10 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
     }
 
     const dateString = `${date.day}.${date.month}.${date.year}`
+    
     const commentsText = () =>{
-        if(comments.length === 1) return ' Komentarz'
-        else if(comments.length === 0 || comments.length > 4) return ' Komentarzy'
+        if(commentsAmmount === 1) return ' Komentarz'
+        else if(commentsAmmount === 0 || commentsAmmount > 4) return ' Komentarzy'
         else return ' Komentarze'
     }
 
@@ -50,7 +54,7 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
     }
 
     const handleCommentPress = () =>{
-        navigation.navigate('AnnouncementsScreen', {announcment})
+        navigation.navigate('AnnouncementsScreen', {announcment, data})
     }
 
     return (
@@ -74,9 +78,7 @@ const AnnouncmentComponent = ({ announcment } : AnnouncmentComponentProps) =>{
                 onPress={handleCommentPress}
             >
                 <Text style={{ color: COLORS.white, textAlign: 'center', width: 100 }}>
-                    {comments.length + 
-                     comments.reduce((amount, object) => amount + Number(object.responses?.length), 0)
-                    }
+                    {commentsAmmount}
                     {commentsText()}
                 </Text>
             </Pressable>

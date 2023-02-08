@@ -6,7 +6,7 @@ export type DimensionParameter = 'SCREEN' | 'WINDOW'
 
 type StackParamList = {
     Home: {}
-    AnnouncementsScreen: { announcment: Announcment}
+    AnnouncementsScreen: { announcment: Announcment, data: string }
     Register: {}
     Login: {}
     Options: {}
@@ -17,6 +17,7 @@ export type NavigationProps = StackNavigationProp<StackParamList>
 export type AnnouncementsScreenRouteProps = { 
     params: { 
         announcment: Announcment
+        data: string
     } 
 }
 
@@ -122,11 +123,20 @@ export type HeartConfigType = {
     style?: StyleProp<ViewStyle>
 }
 
-export interface CreateResponseCommentProps  { 
+export interface CreateResponseCommentProps  {
+    responses: Comment[] | undefined
     _id: string, 
     index: number, 
     setResponses: React.Dispatch<React.SetStateAction<Comment[] | undefined>>,
     setReply: React.Dispatch<React.SetStateAction<boolean>>,
     data: string,
     loading: boolean
+}
+
+export interface CommentResponseProps {
+    id: string, 
+    comment: Comment, 
+    resIndex: number, 
+    index: number, 
+    lastIndex: number 
 }

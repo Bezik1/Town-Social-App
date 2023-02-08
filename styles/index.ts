@@ -173,6 +173,15 @@ export const styles = StyleSheet.create({
         marginRight: '5%',
         backgroundColor: COLORS.purple
     },
+    announcementCommentResponseLineConnect: {
+        width: '10%',
+        opacity: 0.75,
+        height: 10,
+        position: 'absolute',
+        left: 10,
+        top: '50%',
+        backgroundColor: COLORS.purple
+    },
     announcementCommentResponse: {
         marginTop: 20,
         marginRight: 10,

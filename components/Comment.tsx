@@ -18,10 +18,19 @@ import TrashSvg from "./svg/Trash"
 const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentComponentProps) =>{
     const { user } = useUserContext()
     const [responses, setResponses] = useState<Comment[]>()
+    const [responsesVisiblity, setresponsesVisiblity] = useState(false)
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
     const { data: userPhoto, loading: userPhotoLoading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
     const [reply, setReply] = useState(false)
     const { setReload } = useReloadContext()
+
+    const responsesAmmount = Number(responses?.length)
+
+    const responsesText = () =>{
+        if(responsesAmmount === 1) return ' Komentarz'
+        else if(responsesAmmount === 0 || responsesAmmount > 4) return ' Komentarzy'
+        else return ' Komentarze'
+    }
 
     useEffect(() => setResponses(comment.responses), [])
 
@@ -34,7 +43,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
         likeUrl: API_URLS.LikeComment,
         disLikeUrl: API_URLS.DisLikeComment,
         likes: comment.likes || [],
-        style: { marginLeft: 5, width: 40, ...flexCenterStyles }
+        style: { marginLeft: 5, marginTop: 20, width: 40, ...flexCenterStyles }
     }
 
     const handleRemove = async () =>{
@@ -55,7 +64,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                 onPress={handleRemove} 
                 style={{ width: 30, height: 30, marginRight: 10 }}
             >
-                <TrashSvg />
+                <TrashSvg style={{ marginTop: 4 }} />
             </Pressable>
         )
     }
@@ -70,16 +79,33 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                 <View>
                     <Text style={{ color: COLORS.white, marginTop: 10, marginLeft: 10 }}>{comment.content}</Text>
                 </View>
-                <View style={{ position: 'absolute', bottom: '20%', right: '5%', display: 'flex', flexDirection: 'row' }}>
-                    {ifAuthor()}
-                    <Pressable onPress={() => setReply(!reply)}>
+                <Pressable 
+                    onPress={() => setReply(!reply)} 
+                    style={{ 
+                        marginTop: 5, 
+                        position: 'absolute', 
+                        right: '6%', 
+                        top: '7%'
+                    }}>
                         <ReplySvg style={{ width: 30, height: 30 }} />
                     </Pressable>
+                <View style={{ display: 'flex', flexDirection: 'row', marginTop: 10 }}>
                     <HeartSvg config={heartConfig} />
+                    {ifAuthor()}
+                    <Pressable 
+                        style={{ position: 'absolute', right: '5%', bottom: '20%', opacity: 0.75 }}
+                        onPress={() =>setresponsesVisiblity(!responsesVisiblity)}
+                    >
+                        <Text style={{ color: COLORS.white, textAlign: 'center', width: 100 }}>
+                            {responsesAmmount}
+                            {responsesText()}
+                        </Text>
+                    </Pressable>
                 </View>
             </View>
             <View style={styles.announcementCommentResponsesView}>
                 {reply && <CreateResponseComment
+                            responses={responses}
                             data={userPhoto}
                             loading={userPhotoLoading}
                             setReply={setReply} 
@@ -88,8 +114,9 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                             index={index} 
                           />
                 }
-                {responses?.map((response, i) => <CommentResponse
+                {responsesVisiblity && responses?.map((response, i) => <CommentResponse
                                                             id={id}
+                                                            lastIndex={responses.length-1}
                                                             key={`responseComment/${i}`} 
                                                             comment={response}
                                                             resIndex={i}

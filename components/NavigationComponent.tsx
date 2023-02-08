@@ -8,7 +8,7 @@ import { API_URLS } from '../consts';
 import * as Device from 'expo-device';
 import AnnouncementsScreen from './AnnouncementsScreen';
 import { Announcment, Data, User } from '../types';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import OptionsComponent from './OptionsComponent';
 import axios from 'axios';
 import { useUserContext } from '../contexts/UserContext';
@@ -33,15 +33,15 @@ const NavigationComponent = () =>{
               screenOptions={{ header: NavbarHeader }}
             >
                 <Stack.Screen
-                  name='Home'
+                  name='Ogłoszenia'
                   component={user ? HomeScreen : FormLogin}
                 />
                 <Stack.Screen
-                  name='Login'
+                  name='Zaloguj'
                   component={FormLogin}
                 />
                 <Stack.Screen
-                  name='Register'
+                  name='Zarejestruj'
                   component={RegisterForm}
                 />
                 <Stack.Screen 
@@ -50,7 +50,7 @@ const NavigationComponent = () =>{
                   initialParams={{ announcment: {} as Announcment }}
                 />
                 <Stack.Screen 
-                  name='Options'
+                  name='Opcje'
                   component={OptionsComponent}
                 />
               </Stack.Navigator>

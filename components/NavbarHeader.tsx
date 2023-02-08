@@ -29,7 +29,7 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
         }
 
         return SCREENS_NAMES.map(screenName =>{
-            if(user && screenName === 'Login') return (
+            if(user && screenName === 'Zaloguj') return (
                 <Pressable
                     key={'Logout'}
                     onPress={handleLogout}
@@ -37,8 +37,8 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
                     <Text key='LogoutText' style={styles.navbarHeaderBtn}> Logout </Text>
                 </Pressable>
             )
-            else if(user && screenName === 'Register') return <></>
-            else if(!user && (screenName === 'Register' || screenName === 'Login')) return (
+            else if(user && screenName === 'Zarejestruj') return <></>
+            else if(!user && (screenName === 'Zarejestruj' || screenName === 'Zaloguj')) return (
                 <Pressable
                     key={screenName}
                     onPress={() => handleClick(screenName)}
