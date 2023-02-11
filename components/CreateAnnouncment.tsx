@@ -50,8 +50,6 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
         }
     }
 
-    useEffect(() => console.log(error), [error])
-
     return (
         <View style={styles.createAnnouncement}>
             <View style={{ display: 'flex', flexDirection: 'row', width: 60, height: 50 }}>

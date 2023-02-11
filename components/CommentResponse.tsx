@@ -10,7 +10,7 @@ import ProfileImage from "./ProfileImage"
 import HeartSvg from "./svg/HeartSvg"
 import TrashSvg from "./svg/Trash"
 
-const CommentResponse = ({ id, comment, resIndex, index, lastIndex } : CommentResponseProps) =>{
+const CommentResponse = ({ id, comment, resIndex, index, lastIndex, setResponses } : CommentResponseProps) =>{
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
     const { user } = useUserContext()
     const { setReload } = useReloadContext()
@@ -31,6 +31,8 @@ const CommentResponse = ({ id, comment, resIndex, index, lastIndex } : CommentRe
     const handleRemove = async () =>{
         try {
             await axios.post(API_URLS.DeleteResponse, { _id: id, resIndex, index })
+            setResponses((responses) => responses?.
+                filter(response => response.content !== comment.content || response.author !== comment.author))
             setReload((reload) => !reload)
         } catch(err) {
             console.log(err)

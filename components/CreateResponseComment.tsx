@@ -39,7 +39,7 @@ const CreateResponseComment = ({
                 await axios.post(API_URLS.AddResponse, { _id, comment, index })
                 setContent('')
                 //@ts-ignore
-                setResponses((responses) => [comment, ...responses])
+                setResponses((responses) => [...responses, comment])
                 setReply(false)
                 setReload((reload) => !reload)
             }
@@ -48,15 +48,14 @@ const CreateResponseComment = ({
         }
     }
 
-    useEffect(() => console.log(error), [error])
-
     return (
         <View style={{ display: 'flex', flexDirection: 'row' }}>
             <View 
                 style={{
                     ...styles.announcementCommentResponseLine,
                     ...isLastElement()
-                }} />
+                }}
+            />
             <View style={styles.announcementCommentResponseLineConnect} />
             <View style={{ width: '85%', height: 150, backgroundColor: COLORS.gray, marginTop: 20, marginRight: 10 }}>
             <View style={{ display: 'flex', flexDirection: 'row' }}>

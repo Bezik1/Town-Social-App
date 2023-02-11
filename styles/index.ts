@@ -179,14 +179,14 @@ export const styles = StyleSheet.create({
         height: 10,
         position: 'absolute',
         left: 10,
-        top: '50%',
+        top: '51%',
         backgroundColor: COLORS.purple
     },
     announcementCommentResponse: {
         marginTop: 20,
         marginRight: 10,
         backgroundColor: COLORS.gray,
-        paddingBottom: 10, 
+        paddingBottom: '5%', 
         width: '85%',
     },
     addPhotoImage: { 

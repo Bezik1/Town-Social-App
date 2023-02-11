@@ -34,7 +34,7 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
                     key={'Logout'}
                     onPress={handleLogout}
                 >
-                    <Text key='LogoutText' style={styles.navbarHeaderBtn}> Logout </Text>
+                    <Text key='LogoutText' style={styles.navbarHeaderBtn}> Wyloguj </Text>
                 </Pressable>
             )
             else if(user && screenName === 'Zarejestruj') return <></>

@@ -26,7 +26,8 @@
       },
       "android": {
         "permissions": [
-          "INTERNET"
+          "INTERNET",
+          "CAMERA_ROLL"
         ]
       },
       "adaptiveIcon": {

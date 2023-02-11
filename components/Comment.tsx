@@ -24,7 +24,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
     const [reply, setReply] = useState(false)
     const { setReload } = useReloadContext()
 
-    const responsesAmmount = Number(responses?.length)
+    const responsesAmmount = responses?.length ? responses?.length : 0
 
     const responsesText = () =>{
         if(responsesAmmount === 1) return ' Komentarz'
@@ -64,7 +64,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                 onPress={handleRemove} 
                 style={{ width: 30, height: 30, marginRight: 10 }}
             >
-                <TrashSvg style={{ marginTop: 4 }} />
+                <TrashSvg style={{ marginTop: '75%' }} />
             </Pressable>
         )
     }
@@ -117,7 +117,8 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                 {responsesVisiblity && responses?.map((response, i) => <CommentResponse
                                                             id={id}
                                                             lastIndex={responses.length-1}
-                                                            key={`responseComment/${i}`} 
+                                                            key={`responseComment/${i}`}
+                                                            setResponses={setResponses}
                                                             comment={response}
                                                             resIndex={i}
                                                             index={index}

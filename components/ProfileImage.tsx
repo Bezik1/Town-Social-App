@@ -2,10 +2,12 @@ import { Image, ImageStyle, StyleProp } from "react-native"
 import { useEffect, useState } from "react"
 import { COLORS } from "../consts"
 import { styles } from "../styles"
+import { ProfilImageProps } from "../types"
 
-const ProfileImage = ({ style, data, loading } : { style: {}, data: string, loading: boolean }) =>{
+const ProfileImage = ({ style, data, loading, dynamicImage } : ProfilImageProps) =>{
+    const defaultUri: {uri: string} = require('../assets/user-icon.png')
+    const [source, setSource] = useState<{uri: string}>(defaultUri)
     const [userImage, setUserImage] = useState('')
-    const defaultUri = require('../assets/user-icon.png')
     const userImageUri = `data:image/jpg;base64,${userImage}`
 
     const ifData = (data !== undefined || data === '')
@@ -15,10 +17,17 @@ const ProfileImage = ({ style, data, loading } : { style: {}, data: string, load
         setUserImage(data)
     }, [data])
 
+    useEffect(() =>{
+        if(!loading && ifData) setSource({ uri: userImageUri })
+    }, [loading])
+
+    useEffect(() =>{
+        if(typeof dynamicImage === 'string') setSource({ uri: dynamicImage })
+    }, [dynamicImage])
     
     return (
         <Image
-            source={ !loading && ifData ? { uri: userImageUri } : defaultUri} 
+            source={loading ? require('../assets/user-icon.png') : source} 
             style={{...styles.profileImage, ...ifDataStyle, ...style}} 
         />
     )

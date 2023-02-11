@@ -21,14 +21,14 @@ const OptionsComponent = () =>{
 
     const addImage = async () => {
         const image = await ImagePicker.launchImageLibraryAsync({
-            //mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
             aspect: [4,3],
-            //quality: 1,
+            quality: 1,
         });
 
         if(image.assets && !image.canceled) {
-            setFile(String(image.assets[0].uri))
+            setFile(image.assets[0].uri)
             console.log(file)
         }
     }
@@ -47,7 +47,7 @@ const OptionsComponent = () =>{
             const { data }: Data<{ data: string }> = (await axios.post(`${API_URLS.AddPhoto}`, photoData)).data
             await axios.post(`${API_URLS.ChangePhoto}/${user?._id}`, { path: data })
 
-            setReload(true)
+            setReload((reload) => !reload)
         } catch (error) {
             console.log(error)
           }
@@ -59,7 +59,8 @@ const OptionsComponent = () =>{
                 <View style={{margin: 10, marginTop: 40, width: 150, height: 150, ...flexCenterStyles }}>
                     <ProfileImage 
                         style={{ width: '100%', height: '100%', borderWidth: 1, borderColor: '#fff'}} 
-                        data={data} 
+                        data={data}
+                        dynamicImage={file}
                         loading={loading} 
                     />
                     <Pressable style={styles.addPhotoImage} onPress={addImage}>

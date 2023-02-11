@@ -138,5 +138,13 @@ export interface CommentResponseProps {
     comment: Comment, 
     resIndex: number, 
     index: number, 
-    lastIndex: number 
+    lastIndex: number
+    setResponses: React.Dispatch<React.SetStateAction<Comment[] | undefined>>,
+}
+
+export interface ProfilImageProps { 
+    style: {}, 
+    data: string, 
+    loading: boolean, 
+    dynamicImage?: string 
 }
