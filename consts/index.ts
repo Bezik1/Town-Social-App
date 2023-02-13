@@ -63,8 +63,21 @@ export const API_URLS = {
     DeleteResponse: `${ANNOUNCMENTS_URL}/deleteResponse`,
     AddCommentToAnnouncments: `${ANNOUNCMENTS_URL}/addComment`,
     RemoveCommentToAnnouncments: `${ANNOUNCMENTS_URL}/removeComment`,
-    GetAllCoordinates: `${COORDINATE_URL}/getAll`
+    GetAllCoordinates: `${COORDINATE_URL}/getAll`,
+    CreateCoordinates: `${COORDINATE_URL}/create`
 }
 
-export const homeHeader = `Witam Polkowiczanie`
-export const announcementsHeader = `Ogłoszenia`
+export const mapMenuElements = [
+    {
+        url: require('../assets/company-map.png'),
+        mode: CoordinateRole.WorkPlace
+    },
+    {
+        url: require('../assets/home-map.png'),
+        mode: CoordinateRole.Home
+    },
+    {
+        url: require('../assets/traffic-jam-map.png'),
+        mode: CoordinateRole.TrafficJam
+    }
+]

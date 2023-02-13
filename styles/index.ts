@@ -1,5 +1,5 @@
 import { StyleSheet, ViewStyle } from "react-native";
-import { announcementsHeader, COLORS } from "../consts";
+import { COLORS } from "../consts";
 
 export const basicContainerStyles: ViewStyle = {
     backgroundColor: COLORS.gray,
@@ -204,5 +204,31 @@ export const styles = StyleSheet.create({
     profileImage: {
         borderRadius: 100, 
         padding: 10
+    },
+    mapMenuView: { 
+        borderTopColor: COLORS.purple,
+        borderTopWidth: 5,
+        zIndex: 2,
+        display: 'flex',
+        flexDirection: 'row',
+        position: 'absolute', 
+        bottom: 0, 
+        width: '100%', 
+        backgroundColor: COLORS.gray 
+    },
+    mapMenuElement: {
+        width: 50, 
+        height: 50, 
+        ...flexCenterStyles, 
+        marginLeft: '10%',
+        marginTop: 5
+    },
+    selectedLocation: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: '5%',
+        position: 'absolute',
+        backgroundColor: COLORS.gray,
     }
 })

@@ -28,5 +28,5 @@ export const useFetch = <T>(url: string, reqData?: User, reload?: boolean) =>{
       fetchData()
     }, [fetchData])
 
-    return { data, loading, err }
+    return { data, loading, err, setData }
 }

@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleProp, ViewStyle } from 'react-native';
-import { Rang } from '../consts';
+import { CoordinateRole, Rang } from '../consts';
 
 export type DimensionParameter = 'SCREEN' | 'WINDOW'
 
@@ -149,8 +149,18 @@ export interface ProfilImageProps {
 }
 
 export interface CoordinateInterface {
+    author: string,
+    title: string
     latitude: number
     longitude: number
     description: string
     role: string
+}
+
+export interface MapMenuProps {
+    setRole: React.Dispatch<React.SetStateAction<CoordinateRole | undefined>>,
+    setTitle: React.Dispatch<React.SetStateAction<string>>,
+    setDescription: React.Dispatch<React.SetStateAction<string>>,
+    onSubmit: () => Promise<void>
+    role: CoordinateRole | undefined
 }
