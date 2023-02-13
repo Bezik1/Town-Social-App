@@ -15,14 +15,13 @@ const CreateResponseComment = ({
     index, 
     setResponses,
     setReply, 
-    data, 
-    loading, 
     responses 
 } : CreateResponseCommentProps) =>{
 
     const [content, setContent] = useState('')
     const [error, setError] = useState('')
     const { user } = useUserContext()
+    const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
     const { setReload } = useReloadContext()
 
     const isLastElement = () => Number(responses?.length) === 0 ? { height: '56%' } : {}

@@ -32,7 +32,7 @@ const FormLogin = () =>{
             if(status === 'succes') {
                 setErr('')
                 setUser(data)
-                navigation.navigate('Home', {})
+                navigation.navigate('Ogłoszenia', {})
             } else {
                 setErr(message)
             }
@@ -65,7 +65,7 @@ const FormLogin = () =>{
                 />
                 <View style={styles.loginRegisterTexts}>
                     <Text style={{ fontSize: 14, color: COLORS.white }}> Jeżeli nie masz jeszcze konta</Text>
-                    <Pressable onPress={() => navigation.navigate('Register', {})}>
+                    <Pressable onPress={() => navigation.navigate('Zarejestruj', {})}>
                         <Text style={{ fontSize: 16, color: COLORS.purple }}> Zarejestruj się </Text>
                     </Pressable>
                 </View>

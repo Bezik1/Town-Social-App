@@ -5,11 +5,12 @@ import { Rang } from '../consts';
 export type DimensionParameter = 'SCREEN' | 'WINDOW'
 
 type StackParamList = {
-    Home: {}
+    Ogłoszenia: {}
     AnnouncementsScreen: { announcment: Announcment, data: string }
-    Register: {}
-    Login: {}
-    Options: {}
+    Mapa: {}
+    Zarejestruj: {}
+    Zaloguj: {}
+    Opcje: {}
 }
 
 export type NavigationProps = StackNavigationProp<StackParamList>
@@ -129,8 +130,6 @@ export interface CreateResponseCommentProps  {
     index: number, 
     setResponses: React.Dispatch<React.SetStateAction<Comment[] | undefined>>,
     setReply: React.Dispatch<React.SetStateAction<boolean>>,
-    data: string,
-    loading: boolean
 }
 
 export interface CommentResponseProps {
@@ -147,4 +146,11 @@ export interface ProfilImageProps {
     data: string, 
     loading: boolean, 
     dynamicImage?: string 
+}
+
+export interface CoordinateInterface {
+    latitude: number
+    longitude: number
+    description: string
+    role: string
 }

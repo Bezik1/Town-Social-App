@@ -12,6 +12,7 @@ import { FunctionComponent, useEffect } from 'react';
 import OptionsComponent from './OptionsComponent';
 import axios from 'axios';
 import { useUserContext } from '../contexts/UserContext';
+import Map from './Map';
 
 const NavigationComponent = () =>{
     const Stack = createNativeStackNavigator()
@@ -35,6 +36,10 @@ const NavigationComponent = () =>{
                 <Stack.Screen
                   name='Ogłoszenia'
                   component={user ? HomeScreen : FormLogin}
+                />
+                <Stack.Screen
+                  name='Mapa'
+                  component={Map}
                 />
                 <Stack.Screen
                   name='Zaloguj'

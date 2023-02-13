@@ -106,8 +106,6 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
             <View style={styles.announcementCommentResponsesView}>
                 {reply && <CreateResponseComment
                             responses={responses}
-                            data={userPhoto}
-                            loading={userPhotoLoading}
                             setReply={setReply} 
                             setResponses={setResponses} 
                             _id={id} 

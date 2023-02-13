@@ -38,7 +38,7 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
                 </Pressable>
             )
             else if(user && screenName === 'Zarejestruj') return <></>
-            else if(!user && (screenName === 'Zarejestruj' || screenName === 'Zaloguj')) return (
+            else if(!user && (screenName === 'Zarejestruj' || screenName === 'Zaloguj' || 'Mapa')) return (
                 <Pressable
                     key={screenName}
                     onPress={() => handleClick(screenName)}

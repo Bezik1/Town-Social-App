@@ -1,7 +1,8 @@
 export const SCREENS_NAMES = [
     'Ogłoszenia',
-    'Zarejestruj',
+    'Mapa',
     'Opcje',
+    'Zarejestruj',
     'Zaloguj',
 ]
 
@@ -28,8 +29,18 @@ export enum COLORS {
     gray =  '#323E48'
 }
 
-export const USERS_URL = 'https://doc-api-tiq6.onrender.com/users' //'http://192.168.1.60:3000/users'
-export const ANNOUNCMENTS_URL = 'https://doc-api-tiq6.onrender.com/announcments' //http://192.168.1.60:3000/announcments'
+export enum CoordinateRole {
+    Home = 'Dom',
+    WorkPlace = 'Miejsce Pracy',
+    Pool = 'Basen',
+    Accident = 'Wypadek',
+    TrafficJam = 'Korek'
+}
+
+export const BASIC_API_URL = 'http://192.168.1.60:3000' // 'https://doc-api-tiq6.onrender.com'
+export const USERS_URL =  `${BASIC_API_URL}/users`
+export const ANNOUNCMENTS_URL = `${BASIC_API_URL}/announcments`
+export const COORDINATE_URL = `${BASIC_API_URL}/map`
 
 export const API_URLS = {
     Users: `${USERS_URL}/get`,
@@ -52,6 +63,7 @@ export const API_URLS = {
     DeleteResponse: `${ANNOUNCMENTS_URL}/deleteResponse`,
     AddCommentToAnnouncments: `${ANNOUNCMENTS_URL}/addComment`,
     RemoveCommentToAnnouncments: `${ANNOUNCMENTS_URL}/removeComment`,
+    GetAllCoordinates: `${COORDINATE_URL}/getAll`
 }
 
 export const homeHeader = `Witam Polkowiczanie`

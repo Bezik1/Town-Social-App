@@ -67,13 +67,15 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
                     <CreateComment id={_id} setVisibleComments={setVisibleComments}/>
                 </View>
                 <View style={{ paddingBottom: 40, display: 'flex', alignItems: 'flex-start'}}>
-                        {visibleComments.map((comment, i) => <CommentComponent 
-                                                                id={_id}
-                                                                key={i}
-                                                                index={i} 
-                                                                comment={comment} 
-                                                                setVisibleComments={setVisibleComments} 
-                                                            />)}
+                        {visibleComments.map((comment, i) => 
+                            <CommentComponent 
+                                id={_id}
+                                key={i}
+                                index={i} 
+                                comment={comment} 
+                                setVisibleComments={setVisibleComments} 
+                            />
+                        )}
                 </View>
             </ScrollView>
             <BackSvg />

@@ -24,7 +24,7 @@ const RegisterForm = () =>{
             console.log(message)
             if(status === 'succes') {
                 setErr('')
-                navigation.navigate('Login', {})
+                navigation.navigate('Zaloguj', {})
             } else {
                 setErr(message)
             }
@@ -36,7 +36,7 @@ const RegisterForm = () =>{
     return (
         <View style={styles.loginView}>
             <View style={styles.loginLogoView}>
-                <Logo scale={3} color={COLORS.lightViolet}/>
+                <Logo scale={3} color={COLORS.lightPurple}/>
                 <Text 
                     style={{ fontSize: 18, color: COLORS.white }}
                 > 
@@ -68,7 +68,7 @@ const RegisterForm = () =>{
                 />
                 <View style={styles.loginRegisterTexts}>
                     <Text style={{ fontSize: 14, color: COLORS.white }}> Jeżeli masz już konto</Text>
-                    <Pressable onPress={() => navigation.navigate('Login', {})}>
+                    <Pressable onPress={() => navigation.navigate('Zaloguj', {})}>
                         <Text style={{ fontSize: 16, color: COLORS.purple }}> Zaloguj się </Text>
                     </Pressable>
                 </View>
