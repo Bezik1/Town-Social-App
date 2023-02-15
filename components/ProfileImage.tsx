@@ -13,17 +13,9 @@ const ProfileImage = ({ style, data, loading, dynamicImage } : ProfilImageProps)
     const ifData = (data !== undefined || data === '')
     const ifDataStyle: StyleProp<ImageStyle> = ifData ? {} : { borderWidth: 0.25, borderColor: COLORS.white }
 
-    useEffect(() =>{
-        setUserImage(data)
-    }, [data])
-
-    useEffect(() =>{
-        if(!loading && ifData) setSource({ uri: userImageUri })
-    }, [loading])
-
-    useEffect(() =>{
-        if(typeof dynamicImage === 'string') setSource({ uri: dynamicImage })
-    }, [dynamicImage])
+    useEffect(() => setUserImage(data), [data])
+    useEffect(() => (!loading && ifData) ? setSource({ uri: userImageUri }) : undefined, [loading])
+    useEffect(() => dynamicImage ? setSource({ uri: dynamicImage }) : undefined, [dynamicImage])
     
     return (
         <Image

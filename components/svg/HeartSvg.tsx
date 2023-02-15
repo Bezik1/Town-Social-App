@@ -31,10 +31,8 @@ const HeartSvg = ({ config } : { config: HeartConfigType }) =>{
         const checkIfUserClicked = async () =>{
             if(active && clicked) {
                 await axios.post(likeUrl, reqObject)
-                setReload(reload => !reload)
             } else if(!active && clicked) {
                 await axios.post(disLikeUrl, reqObject)
-                setReload(reload => !reload)
             }
         }
 

@@ -24,7 +24,7 @@ const NavbarHeader = ({ navigation } : NativeStackHeaderProps) =>{
         const handleLogout = async () =>{
             setUser(undefined)
             setSelected(false)
-            navigation.navigate('Login', {})
+            navigation.navigate('Zaloguj', {})
             await axios.post(`${API_URLS.Logout}/${user?._id}`)
         }
 

@@ -37,7 +37,7 @@ export enum CoordinateRole {
     TrafficJam = 'Korek'
 }
 
-export const BASIC_API_URL = 'http://192.168.1.60:3000' // 'https://doc-api-tiq6.onrender.com'
+export const BASIC_API_URL =  /*'http://192.168.1.60:3000' */ 'https://doc-api-tiq6.onrender.com'
 export const USERS_URL =  `${BASIC_API_URL}/users`
 export const ANNOUNCMENTS_URL = `${BASIC_API_URL}/announcments`
 export const COORDINATE_URL = `${BASIC_API_URL}/map`

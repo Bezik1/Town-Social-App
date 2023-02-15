@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import axios from "axios";
 import { useState, useCallback, useEffect } from "react";
 
 import { Data, User } from "../types";
@@ -10,6 +10,7 @@ export const useFetch = <T>(url: string, reqData?: User, reload?: boolean) =>{
     
     const fetchData = useCallback(async () =>{
         try {
+          setLoading(true)
           let res: Data<T>
 
           if(reqData) res = (await axios.post<Data<T>>(url, reqData)).data
