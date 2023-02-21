@@ -8,13 +8,18 @@ Type in console `yarn install`
 ## :hammer_and_wrench: Commands
 To run application type `yarn start` or `yarn expo` \
 To build application type:  
-For app file `yarn build`\
-Or for apk file `eas build -p android --profile preview`
+* For app file `yarn build`\
+* Or for apk file `eas build -p android --profile preview`
 
 ## :warning: Project Status
 ```diff
 ! Project is still in state of development
 ```
-## API
+## :fox_face: API
 This app is using REST API made in Nest.js framework. \
-Link: [Doc API](https://pages.github.com/) 
+Link: [Doc API](https://github.com/Bezik1/doc-api/) 
+
+## 	:electron: Admin Panel
+Data of this application is monitoring by app build by 
+[Electron](https://github.com/electron/electron/) \
+Link: [Doc Admin Panel](https://github.com/Bezik1/doc-admin-panel/) 
