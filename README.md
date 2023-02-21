@@ -8,7 +8,10 @@ The purpose of this application is to make communication between residents easie
 Type in console `yarn install`
 
 ## Commands
-To run application type `yarn start` or `yarn expo`
+To run application type `yarn start` or `yarn expo` \
 To build application type:  
-For app file `yarn build`\
-Or for apk file `eas build -p android --profile preview`
+    :iphone: For app file `yarn build`\
+    :hammer_and_wrench: Or for apk file `eas build -p android --profile preview`
+
+## Project Status
+:warning: Project is still in state of development
