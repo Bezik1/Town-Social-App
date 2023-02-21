@@ -20,5 +20,4 @@ Or for apk file `eas build -p android --profile preview`
 ## API
 ```diff
 This app is using REST API made in Nest.js framework. \
-@@ Link @@: [Doc API](https://pages.github.com/) 
-```
+@@ Link @@```: [Doc API](https://pages.github.com/) 
