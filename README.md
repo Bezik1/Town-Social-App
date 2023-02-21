@@ -12,11 +12,10 @@ To build application type:
 * Or for apk file `eas build -p android --profile preview`
 
 ## :warning: Project Status
-```diff
-! Project is still in state of development
-```
+Project is still in state of development
+
 ## :fox_face: API
-This app is using REST API made in Nest.js framework. \
+This app is using REST API made in Nest.js framework.
 Link: [Doc API](https://github.com/Bezik1/doc-api/) 
 
 ## 	:electron: Admin Panel
