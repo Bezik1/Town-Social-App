@@ -1,7 +1,7 @@
 # Town Social App :earth_africa:
 
 <p align="center">
-  <a href="/assets/logo.png/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Doc Social Logo" /></a>
+ <img src="/assets/logo.png" width="200" alt="Doc Social Logo" />
 </p>
 
 The purpose of this application is to make communication between residents easier. This product also is having functions like map with option to add marker to inform users about your company, accident, or nice location. Another valuable function of this app is creating announcements, like, comment and reply to them.
