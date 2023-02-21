@@ -14,8 +14,8 @@ To build application type:
 ## :warning: Project Status
 Project is still in state of development
 
-## :fox_face: API
-This app is using REST API made in Nest.js framework. \
+## 	:telephone_receiver: API
+This app is using REST API made in [Nest.js](https://github.com/nestjs/nest) framework. \
 Link: [Doc API](https://github.com/Bezik1/doc-api/) 
 
 ## 	:electron: Admin Panel
