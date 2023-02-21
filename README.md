@@ -11,7 +11,8 @@ To build application type:
 * Or for apk file `eas build -p android --profile preview`
 
 ## :warning: Project Status
-Project is still in state of development
+Project is still in state of development \
+Current project: [Link](https://expo.dev/artifacts/eas/e4wem5tjFxLkjZgowDTLPb.apk)
 
 ## 	:telephone_receiver: API
 This app is using REST API made in [Nest.js](https://github.com/nestjs/nest) framework. \
