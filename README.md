@@ -8,7 +8,7 @@ Type in console `yarn install`
 ## :hammer_and_wrench: Commands
 To run application type `yarn start` or `yarn expo` \
 To build application type:  
-* For app file `yarn build`\
+* For app file `yarn build`
 * Or for apk file `eas build -p android --profile preview`
 
 ## :warning: Project Status
