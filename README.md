@@ -10,6 +10,10 @@ To build application type:
 * For app file `yarn build`
 * Or for apk file `eas build -p android --profile preview`
 
+## :test_tube: Tests
+To run tests type:
+* For unit tests: `yarn test:unit`
+
 ## :warning: Project Status
 Project is still in state of development \
 Link to download app: [Link](https://expo.dev/artifacts/eas/e4wem5tjFxLkjZgowDTLPb.apk)

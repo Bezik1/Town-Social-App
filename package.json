@@ -4,7 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "test": "jest",
+    "test:unit": "jest",
     "build": "eas build-p",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -39,7 +39,7 @@
     "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "~2.8.0",
     "react-native-maps": "1.3.2",
-    "react-native-reanimated": "~2.12.0",
+    "react-native-reanimated": "^3.0.2",
     "react-native-safe-area-context": "4.4.1",
     "react-native-screens": "~3.18.0",
     "react-native-svg": "13.4.0",
