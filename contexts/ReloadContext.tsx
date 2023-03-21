@@ -19,7 +19,7 @@ export const ReloadProvider = ({ children } : ParentProps) =>{
 export const useReloadContext = () =>{
     const { reload, setReload } = useContext(ReloadContext)
 
-    if(typeof setReload === 'undefined') throw new Error('Element is outside NavbarSelectProvider Provider')
+    if(typeof setReload === 'undefined') throw new Error('Element is outside ReloadProvider')
 
     return { reload, setReload }
 }

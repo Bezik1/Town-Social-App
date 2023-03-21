@@ -35,8 +35,6 @@ const CreateComment = ({ id , setVisibleComments} : CreateCommentProps) =>{
         }
     }
 
-    useEffect(() => console.log(error), [error])
-
     return (
         <View style={{ width: '95%', height: 150, backgroundColor: COLORS.gray, marginTop: 20, marginBottom: 10 }}>
             <View style={{ display: 'flex', flexDirection: 'row' }}>
@@ -44,20 +42,26 @@ const CreateComment = ({ id , setVisibleComments} : CreateCommentProps) =>{
                 <Text style={{ marginTop: 15, color: COLORS.purple }}>{user?.username}</Text>
             </View>
             <TextInput
+                testID="createComment-text-input"
                 style={{ padding: 10, color: COLORS.white }}
                 placeholderTextColor={COLORS.white}
                 value={content}
                 onChangeText={text => setContent(text)}
                 placeholder="Dodaj komentarz..." 
             />
-            <Pressable
-                onPress={handlePress}
-                style={{ width: 50, height: 50, position: 'absolute', right: 20, bottom: 20 }}
-            >
-                <CheckedSvg />
-            </Pressable>
+            <CreateCommentSubmit onPress={handlePress} />
         </View>
     )
 }
+
+export const CreateCommentSubmit = ({ onPress } : { onPress: () => Promise<void> }) =>(
+    <Pressable
+        testID="createComment-submit"
+        onPress={onPress}
+        style={{ width: 50, height: 50, position: 'absolute', right: 20, bottom: 20 }}
+    >
+        <CheckedSvg />
+    </Pressable>
+)
 
 export default CreateComment

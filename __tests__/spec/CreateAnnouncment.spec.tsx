@@ -3,21 +3,23 @@ import CreateAnnouncment, { CreateAnnouncmentSubmit } from '../../components/Cre
 import { NavbarSelectProvider } from '../../contexts/NavbarSelectContext';
 import { UserProvider } from '../../contexts/UserContext';
 
-describe('CreateAnnouncment component tests', () => {
-    const { getByTestId } = render(
+describe('CreateAnnouncment component tests:', () => {
+    const { getByTestId, root } = render(
         <UserProvider>
             <NavbarSelectProvider>
                 <CreateAnnouncment setReload={() =>{}} />
             </NavbarSelectProvider>
         </UserProvider>
     )
-    
+
     test('Input text changing', () => {
         const input = getByTestId('anouncment-text-input')
         fireEvent.changeText(input, 'test')
 
         expect(input.props.value).toBe('test')
     })
+
+    test('Component proper rendering', () => expect(root).toBeDefined())
 
     test('Form submitting', () =>{
         const mockSubmit = jest.fn();

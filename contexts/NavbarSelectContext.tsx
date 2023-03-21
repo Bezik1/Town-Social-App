@@ -19,7 +19,7 @@ export const NavbarSelectProvider = ({ children } : ParentProps) =>{
 export const useNavbarSelectContext = () =>{
     const { selected, setSelected } = useContext(NavbarSelectContext)
 
-    if(typeof setSelected === 'undefined') throw new Error('Element is outside NavbarSelectProvider Provider')
+    if(typeof setSelected === 'undefined') throw new Error('Element is outside NavbarSelectProvider')
 
     return { selected, setSelected }
 }

@@ -19,7 +19,7 @@ export const UserProvider = ({ children } : ParentProps) =>{
 export const useUserContext = () =>{
     const { user, setUser } = useContext(UserContext)
 
-    if(typeof setUser === 'undefined') throw new Error('Element is outside NavbarSelectProvider Provider')
+    if(typeof setUser === 'undefined') throw new Error('Element is outside UserProvider')
 
     return { user, setUser }
 }
