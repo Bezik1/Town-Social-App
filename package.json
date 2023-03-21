@@ -6,7 +6,6 @@
     "start": "expo start",
     "test:unit": "jest",
     "build": "eas build-p",
-    "test": "jest",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web"
