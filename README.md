@@ -1,8 +1,3 @@
-<p align="center">
-<img src="/assets/logo.png" width="77" alt="Doc Social Logo" />
-</p>
-
-
 # Town Social App :earth_africa:
 The purpose of this application is to make communication between residents easier. This product also is having functions like map with option to add marker to inform users about your company, accident, or nice location. Another valuable function of this app is creating announcements, like, comment and reply to them.
 
@@ -33,3 +28,7 @@ Link: [Doc API](https://github.com/Bezik1/doc-api/)
 Data of this application is monitoring by app build by 
 [Electron](https://github.com/electron/electron/) \
 Link: [Doc Admin Panel](https://github.com/Bezik1/doc-admin-panel/)
+
+<p align="center">
+<img src="/assets/logo.png" width="77" alt="Doc Social Logo" />
+</p>
