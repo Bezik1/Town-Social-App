@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Pressable, Text } from "react-native"
 import Svg, { Path } from "react-native-svg"
 import { COLORS } from "../../consts"
-import { useReloadContext } from "../../contexts/ReloadContext"
 import { useUserContext } from "../../contexts/UserContext"
 import { HeartConfigType } from "../../types"
 
@@ -13,7 +12,6 @@ const HeartSvg = ({ config } : { config: HeartConfigType }) =>{
     const [clicked, click] = useState(false)
     const [active, setActive] = useState(false)
     const { user } = useUserContext()
-    const { setReload } = useReloadContext()
     const ifUserLiked = likes.includes(String(user?.username))
 
     const handleClick = () =>{
