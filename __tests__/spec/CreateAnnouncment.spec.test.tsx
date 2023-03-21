@@ -1,7 +1,7 @@
 import { render, fireEvent } from '@testing-library/react-native';
-import CreateAnnouncment, { CreateAnnouncmentSubmit } from '../components/CreateAnnouncment';
-import { NavbarSelectProvider } from '../contexts/NavbarSelectContext';
-import { UserProvider } from '../contexts/UserContext';
+import CreateAnnouncment, { CreateAnnouncmentSubmit } from '../../components/CreateAnnouncment';
+import { NavbarSelectProvider } from '../../contexts/NavbarSelectContext';
+import { UserProvider } from '../../contexts/UserContext';
 
 describe('CreateAnnouncment component tests', () => {
     const { getByTestId } = render(
