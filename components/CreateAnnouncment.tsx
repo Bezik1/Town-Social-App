@@ -27,7 +27,6 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
 
     const handleSubmit = async () =>{
-
         const announcment: CreateAnnouncmentInterface = {
             author: String(user?.username),
             content,
@@ -60,7 +59,8 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
                 </View>
             </View>
             <View style={{ width: '100%' }}>
-                <TextInput 
+                <TextInput
+                    testID="anouncment-text-input"
                     placeholderTextColor={COLORS.white} 
                     placeholder="Co słychać?" 
                     style={styles.createAnnouncementInput}
@@ -68,11 +68,19 @@ const CreateAnnouncment = ({ setReload } : { setReload: React.Dispatch<React.Set
                     onChangeText={text => setContent(text)}
                 />
             </View>
-            <Pressable onPress={handleSubmit} style={{ width: 50, height: 50, position: 'absolute', bottom: 20, right: 20 }}>
-                <CheckedSvg />
-            </Pressable>
+            <CreateAnnouncmentSubmit onPress={handleSubmit} />
         </View>
     )
 }
+
+export const CreateAnnouncmentSubmit = ({ onPress } : { onPress: () => Promise<void> }) =>(
+    <Pressable
+        testID="anouncment-submit"
+        onPress={onPress} 
+        style={{ width: 50, height: 50, position: 'absolute', bottom: 20, right: 20 }}
+    >
+        <CheckedSvg />
+    </Pressable>
+)
 
 export default CreateAnnouncment

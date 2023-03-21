@@ -1,5 +1,6 @@
 module.exports = {
-    preset: 'react-native',
+    testEnvironment: "jsdom",
+    preset: 'jest-expo',
     moduleFileExtensions: [
       'ts',
       'tsx',
