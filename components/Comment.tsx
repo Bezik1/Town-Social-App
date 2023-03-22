@@ -20,7 +20,6 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
     const [responses, setResponses] = useState<Comment[]>()
     const [responsesVisiblity, setresponsesVisiblity] = useState(false)
     const { data, loading } = useFetch<string>(`${API_URLS.GetPhoto}/${comment.author}`)
-    const { data: userPhoto, loading: userPhotoLoading } = useFetch<string>(`${API_URLS.GetPhoto}/${user?.username}`)
     const [reply, setReply] = useState(false)
     const { setReload } = useReloadContext()
 

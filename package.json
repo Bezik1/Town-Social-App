@@ -4,7 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "test:unit": "jest -c jest.config.js",
+    "test:unit": "jest",
     "build": "eas build-p",
     "android": "expo start --android",
     "ios": "expo start --ios",
