@@ -22,7 +22,7 @@ Links to download app:
 
 ## 	:telephone_receiver: API
 This app is using REST API made in [Nest.js](https://github.com/nestjs/nest) framework. \
-Link: [Doc API](https://github.com/Bezik1/doc-api/) 
+Link: [Town Social API](https://github.com/Bezik1/doc-api/) 
 
 ## 	:electron: Admin Panel
 Data of this application is monitoring by app build by 
