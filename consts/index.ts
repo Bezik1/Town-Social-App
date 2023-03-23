@@ -1,3 +1,5 @@
+import './test-consts'
+
 export const SCREENS_NAMES = [
     'Ogłoszenia',
     'Mapa',

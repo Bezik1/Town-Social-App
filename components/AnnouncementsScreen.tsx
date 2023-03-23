@@ -66,7 +66,7 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
                 <View style={flexCenterStyles}>
                     <CreateComment id={_id} setVisibleComments={setVisibleComments}/>
                 </View>
-                <View style={{ paddingBottom: 40, display: 'flex', alignItems: 'flex-start'}}>
+                <View style={{ paddingBottom: 40, display: 'flex', alignItems: 'flex-start'}} testID="comments">
                         {visibleComments.map((comment, i) => 
                             <CommentComponent 
                                 id={_id}
