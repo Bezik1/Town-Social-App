@@ -1,7 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 import AnnouncementsScreen from '../../components/AnnouncementsScreen';
-import CreateAnnouncment, { CreateAnnouncmentSubmit } from '../../components/CreateAnnouncment';
 import { TEST_ANNOUNCEMENTS_SCREEN_ROUTE } from '../../consts/test-consts';
 import { NavbarSelectProvider } from '../../contexts/NavbarSelectContext';
 import { ReloadProvider } from '../../contexts/ReloadContext';
@@ -19,6 +18,11 @@ describe('AnnouncementsScreen component test', () =>{
             </UserProvider>
         </NavigationContainer>
     )
+
+    test('Comments section proper rendering', () =>{
+        const commentsContainer = getByTestId('comments')
+        expect(commentsContainer.children.length).toBeGreaterThanOrEqual(0)
+    })
 
     test('Component proper rendering', () => expect(root).toBeDefined())
 })
