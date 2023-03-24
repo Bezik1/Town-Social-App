@@ -22,8 +22,6 @@ describe('CreateComment component tests:', () => {
         expect(input.props.value).toBe('test')
     })
 
-    test('Component proper rendering', () => expect(root).toBeDefined())
-
     test('Form submitting', () =>{
         const mockSubmit = jest.fn();
         const { getByTestId } = render(<CreateCommentSubmit onPress={mockSubmit} />)
@@ -32,4 +30,6 @@ describe('CreateComment component tests:', () => {
 
         expect(mockSubmit).toHaveBeenCalled();
     })
+
+    test('Component proper rendering', () => expect(root).toBeDefined())
 })

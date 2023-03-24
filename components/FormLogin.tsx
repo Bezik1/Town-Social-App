@@ -50,6 +50,8 @@ const FormLogin = () =>{
             <View style={styles.login}>
                 <TextInput
                     style={styles.loginInpt}
+                    value={formData.email}
+                    testID="login-email"
                     placeholder="Email"
                     textContentType="emailAddress"
                     placeholderTextColor={COLORS.white}
@@ -57,6 +59,8 @@ const FormLogin = () =>{
                 />
                 <TextInput
                     style={styles.loginInpt}
+                    value={formData.password}
+                    testID="login-pass"
                     secureTextEntry={true}
                     placeholderTextColor={COLORS.white}
                     placeholder='Password'
@@ -70,6 +74,7 @@ const FormLogin = () =>{
                     </Pressable>
                 </View>
                 <Pressable
+                    testID="login-submit"
                     style={styles.loginBtn}
                     onPress={handleSubmit}    
                 >
