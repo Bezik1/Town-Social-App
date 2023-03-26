@@ -1,5 +1,5 @@
 # Town Social App :earth_africa:
-The purpose of this application is to make communication between residents easier. This product also is having functions like map with option to add marker to inform users about your company, accident, or nice location. Another valuable function of this app is creating announcements, like, comment and reply to them.
+The purpose of this application is to make communication between users easier. This product also is having functionalities like map with option to add marker to inform users about your company, accident, or nice location. Another valuable function of this app is creating announcements, like, comment and reply to them.
 
 ## :dart: Install Dependencies
 Type in console `yarn install`
