@@ -32,13 +32,14 @@ Link: [Doc Admin Panel](https://github.com/Bezik1/doc-admin-panel/)
 # :iphone: App Review
 
 ## Home View
+<p style={{ dispaly: 'flex' }}>
 <img src="/assets/README/home.jpg" width="250" alt="App Home View" /> \
 
 In the home view application fetch announcments from API \
 and shows them as posts. Each component has comment section, \
 profile image, author, content. If you are author of the post \
 you can delete post and as normal user you can like it.
-
+</p>
 
 ## Map section
 <img src="/assets/README/map.jpg" width="250" alt="App Map View" /> \
@@ -54,7 +55,7 @@ your company center, workplace or traffic jam.
 In this view user can edit his email, or profile picture.
 
 ## Comment section
-<img src="/assets/README/comment.jpg" width="250" alt="App Options View" /> \
+<img src="/assets/README/options.jpg" width="250" alt="App Options View" /> \
 
 In the comment section user can add comment to choosen post and \
 reply or like other comments within the post. 
