@@ -30,23 +30,23 @@ Data of this application is monitoring by app build by
 Link: [Doc Admin Panel](https://github.com/Bezik1/doc-admin-panel/)
 
 # :iphone: App Review
-## Home View
+## :derelict_house: Home View
 In the home view application fetch announcments from API \
 and shows them as posts. Each component has comment section, \
 profile image, author, content. If you are author of the post \
 you can delete post and as normal user you can like it.
 
 
-## Map section
+## :world_map: Map section
 In this section user can mark the point in the map and add \
 description and type of the point. This functionality is for \
 share with other users interesting locations or inform them about \
 your company center, workplace or traffic jam.
 
-## Options section
+## :gear: Options section
 In this view user can edit his email, or profile picture.
 
-## Comment section
+## :envelope: Comment section
 In the comment section user can add comment to choosen post and \
 reply or like other comments within the post. 
 
