@@ -29,6 +29,32 @@ Data of this application is monitoring by app build by
 [Electron](https://github.com/electron/electron/) \
 Link: [Doc Admin Panel](https://github.com/Bezik1/doc-admin-panel/)
 
-<p align="center">
-<img src="/assets/logo.png" width="77" alt="Doc Social Logo" />
-</p>
+# :iphone: App Review
+
+## Home View
+<img src="/assets/README/home.jpg" width="77vw" alt="App Home View" /> \
+
+In the home view application fetch announcments from API \
+and shows them as posts. Each component has comment section, \
+profile image, author, content. If you are author of the post \
+you can delete post and as normal user you can like it.
+
+
+## Map section
+<img src="/assets/README/map.jpg" width="77vw" alt="App Map View" /> \
+
+In this section user can mark the point in the map and add \
+description and type of the point. This functionality is for \
+share with other users interesting locations or inform them about \
+your company center, workplace or traffic jam.
+
+## Options section
+<img src="/assets/README/options.jpg" width="77vw" alt="App Options View" /> \
+
+In this view user can edit his email, or profile picture.
+
+## Comment section
+<img src="/assets/README/options.jpg" width="77vw" alt="App Options View" /> \
+
+In the comment section user can add comment to choosen post and \
+reply or like other comments within the post. 
