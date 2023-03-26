@@ -54,7 +54,7 @@ your company center, workplace or traffic jam.
 In this view user can edit his email, or profile picture.
 
 ## Comment section
-<img src="/assets/README/options.jpg" width="250" alt="App Options View" /> \
+<img src="/assets/README/comment.jpg" width="250" alt="App Options View" /> \
 
 In the comment section user can add comment to choosen post and \
 reply or like other comments within the post. 
