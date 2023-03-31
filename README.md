@@ -13,6 +13,9 @@ To build application type:
 ## :test_tube: Tests
 To run tests type:
 * For unit tests: `yarn test:unit`
+* For login as regular user write:
+    * In email field: test@wp.pl
+    * In password field: 12345678
 
 ## :warning: Project Status
 Project is still in state of development \
