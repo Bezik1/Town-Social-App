@@ -102,7 +102,7 @@ const CommentComponent = ({ comment, id, setVisibleComments, index } : CommentCo
                     </Pressable>
                 </View>
             </View>
-            <View style={styles.announcementCommentResponsesView}>
+            <View style={styles.announcementCommentResponsesView} testID="responses-container">
                 {reply && <CreateResponseComment
                             responses={responses}
                             setReply={setReply} 

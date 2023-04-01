@@ -1,6 +1,6 @@
 import { RouteProp } from "@react-navigation/native";
 import { Rang } from ".";
-import { AnnouncementsScreenRouteProps } from "../types";
+import { AnnouncementsScreenRouteProps, Comment } from "../types";
 
 export const TEST_ANNOUNCEMENTS_SCREEN_ROUTE: any = {
     params: {
@@ -18,4 +18,18 @@ export const TEST_ANNOUNCEMENTS_SCREEN_ROUTE: any = {
             _id: 'testID',
         }
     }
+}
+
+export const TEST_COMMENT: Comment = {
+    author: 'test_author',
+    content: 'test',
+    likes: [],
+    responses: [
+        {
+            author: 'test_author2',
+            content: 'response',
+            likes: [],
+            responses: [],
+        },
+    ],
 }

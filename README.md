@@ -8,7 +8,7 @@ Type in console `yarn install`
 To run application type `yarn start` or `yarn expo` \
 To build application type:  
 * For app file `yarn build`
-* Or for apk file `eas build -p android --profile preview`
+* Or for apk file `yarn build:apk`
 
 ## :test_tube: Tests
 To run tests type:
