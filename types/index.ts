@@ -143,7 +143,7 @@ export interface CommentResponseProps {
 
 export interface ProfilImageProps { 
     style: {}, 
-    data: string, 
+    data: string | undefined, 
     loading: boolean, 
     dynamicImage?: string 
 }

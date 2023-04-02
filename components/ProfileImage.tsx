@@ -7,7 +7,7 @@ import { ProfilImageProps } from "../types"
 const ProfileImage = ({ style, data, loading, dynamicImage } : ProfilImageProps) =>{
     const defaultUri: {uri: string} = require('../assets/user-icon.png')
     const [source, setSource] = useState<{uri: string}>(defaultUri)
-    const [userImage, setUserImage] = useState('')
+    const [userImage, setUserImage] = useState<string>()
     const userImageUri = `data:image/jpg;base64,${userImage}`
 
     const ifData = (data !== undefined || data === '')
