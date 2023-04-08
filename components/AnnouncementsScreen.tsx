@@ -39,6 +39,8 @@ const AnnouncementsScreen = ({ route } : { route: RouteProp<AnnouncementsScreenR
         else return ' Komentarze'
     }
 
+    // Git learning
+
     return (
         <View style={{ ...basicContainerStyles, paddingBottom: '20%' }}>
             <ScrollView key={_id} style={styles.announcment}>
